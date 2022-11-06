@@ -7,7 +7,7 @@
 </head>
 <body>
 <section class="vh-100 bg-image"
-         style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+         style="background-image: url('https://static.vecteezy.com/system/resources/previews/006/852/804/large_2x/abstract-blue-background-simple-design-for-your-website-free-vector.jpg' );">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -16,26 +16,35 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                            <form th:action="@{/register}" method="post">
+                            <form th:action="@{/register}" method="post" th:object="${userRegisterDto}">
+                                <p class="alert-success text-success" th:if="${success}" th:text="${success}">
 
                                 <div class="form-outline mb-4">
                                     <input th:name="name" type="text" id="form3Example1cg" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example1cg">Your Name</label>
+                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <input th:name="email" type="email" id="form3Example3cg" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example3cg">Your Email</label>
+                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input name="password" type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                                    <input name="password"  type="password" id="form3Example4cg" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example4cg">Password</label>
+                                    <p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input name="confirmPassword" type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                                    <input name="confirmPassword"  type="password" id="form3Example4cdg" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                                    <p class="alert alert-danger" th:if="${pswe}" th:text="${pswe}">
+
                                 </div>
 
                                 <div class="d-flex justify-content-center">
@@ -43,7 +52,7 @@
                                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a th:href="@{/}"
+                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a th:href="@{/login}"
                                                                                                         class="fw-bold text-body"><u>Login here</u></a></p>
 
                             </form>
