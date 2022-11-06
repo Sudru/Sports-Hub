@@ -17,7 +17,7 @@ public class UserService {
     private final UserRepository repository;
 
     public boolean registerUser(UserRegisterDto dto){
-        if(repository.findByEmail(dto.getEmail())==null) {
+        if(repository.findByEmail(dto.getEmail()).isEmpty()) {
             User user = new User();
             user.setName(dto.getName());
             user.setEmail(dto.getEmail());
