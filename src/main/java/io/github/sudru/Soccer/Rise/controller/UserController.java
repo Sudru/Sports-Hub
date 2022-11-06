@@ -35,14 +35,18 @@ public class UserController {
             }
             return "/register";
         }
-
-        if (userService.registerUser(userRegisterDto))
+        boolean status = userService.registerUser(userRegisterDto);
+        if (status)
             model.addAttribute("success", "User Added Successfully.");
         else
             model.addAttribute("success","User Already Exists.");
         return "/register";
 
 
+    }
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 
 }

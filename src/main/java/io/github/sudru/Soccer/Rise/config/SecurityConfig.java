@@ -22,7 +22,7 @@ public class SecurityConfig {
         http.authorizeRequests().
         mvcMatchers("/register").permitAll()
         .anyRequest().authenticated()
-                .and().formLogin();
+                .and().formLogin().loginPage("/login").permitAll();
 
         return http.build();
     }
