@@ -1,4 +1,4 @@
-package io.github.sudru.Soccer.Rise.dto;
+package io.github.sudru.SportsHub.dto;
 
 import lombok.Data;
 

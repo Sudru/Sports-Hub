@@ -1,4 +1,4 @@
-package io.github.sudru.Soccer.Rise;
+package io.github.sudru.SportsHub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

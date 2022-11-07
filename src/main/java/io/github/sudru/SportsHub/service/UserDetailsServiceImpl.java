@@ -1,8 +1,8 @@
-package io.github.sudru.Soccer.Rise.service;
+package io.github.sudru.SportsHub.service;
 
-import io.github.sudru.Soccer.Rise.model.User;
-import io.github.sudru.Soccer.Rise.model.UserDetailsImpl;
-import io.github.sudru.Soccer.Rise.repository.UserRepository;
+import io.github.sudru.SportsHub.model.User;
+import io.github.sudru.SportsHub.model.UserDetailsImpl;
+import io.github.sudru.SportsHub.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

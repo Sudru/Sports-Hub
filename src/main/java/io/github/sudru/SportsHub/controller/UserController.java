@@ -1,7 +1,7 @@
-package io.github.sudru.Soccer.Rise.controller;
+package io.github.sudru.SportsHub.controller;
 
-import io.github.sudru.Soccer.Rise.dto.UserRegisterDto;
-import io.github.sudru.Soccer.Rise.service.UserService;
+import io.github.sudru.SportsHub.dto.UserRegisterDto;
+import io.github.sudru.SportsHub.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

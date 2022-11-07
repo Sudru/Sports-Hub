@@ -1,4 +1,4 @@
-package io.github.sudru.Soccer.Rise.controller;
+package io.github.sudru.SportsHub.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

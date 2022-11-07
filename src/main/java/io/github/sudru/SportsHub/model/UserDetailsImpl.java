@@ -1,4 +1,4 @@
-package io.github.sudru.Soccer.Rise.model;
+package io.github.sudru.SportsHub.model;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

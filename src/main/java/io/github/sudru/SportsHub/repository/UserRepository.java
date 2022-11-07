@@ -1,6 +1,6 @@
-package io.github.sudru.Soccer.Rise.repository;
+package io.github.sudru.SportsHub.repository;
 
-import io.github.sudru.Soccer.Rise.model.User;
+import io.github.sudru.SportsHub.model.User;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

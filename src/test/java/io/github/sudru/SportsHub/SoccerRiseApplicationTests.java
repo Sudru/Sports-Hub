@@ -1,4 +1,4 @@
-package io.github.sudru.Soccer.Rise;
+package io.github.sudru.SportsHub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

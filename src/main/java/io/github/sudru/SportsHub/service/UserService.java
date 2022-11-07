@@ -1,8 +1,8 @@
-package io.github.sudru.Soccer.Rise.service;
+package io.github.sudru.SportsHub.service;
 
-import io.github.sudru.Soccer.Rise.dto.UserRegisterDto;
-import io.github.sudru.Soccer.Rise.model.User;
-import io.github.sudru.Soccer.Rise.repository.UserRepository;
+import io.github.sudru.SportsHub.dto.UserRegisterDto;
+import io.github.sudru.SportsHub.model.User;
+import io.github.sudru.SportsHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
