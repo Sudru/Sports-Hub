@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,10 +28,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute UserRegisterDto userRegisterDto, BindingResult result, Model model) {
         log.info(userRegisterDto.toString());
-        if (result.getErrorCount() > 0) {
-            if (!userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
-                model.addAttribute("pswe", "Password do not match");
-            }
+        if (result.getErrorCount() > 0 || !userRegisterDto.getPassword().equals(userRegisterDto.getConfirmPassword())) {
             return "/register";
         }
         boolean status = userService.registerUser(userRegisterDto);
