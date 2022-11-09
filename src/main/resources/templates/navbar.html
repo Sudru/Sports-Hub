@@ -21,16 +21,16 @@
                     <a class="nav-link" href="#">Tournaments</a>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a  class="nav-link btn btn-success text-light mx-2" href="#">Login</a>
+                    <a  class="nav-link btn btn-success text-light mx-2 text-center" href="#">Login</a>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link btn btn-warning text-dark" href="#">Register</a>
+                    <a class="nav-link btn btn-warning text-dark text-center" href="#">Register</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link " href="#"><img src="..." alt="Profile" class="img-rounded img-thumbnail"
-                                                       height="50"></a>
-                </li>
+
             </ul>
+            <div sec:authorize="isAuthenticated()" class="nav-item">
+                <a class="nav-link ms-4" href="#"> <i class="bi bi-person-circle text-light" style="font-size: 2.5rem;"></i></a>
+            </div>
         </div>
     </div>
 </nav>
