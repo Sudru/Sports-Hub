@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Tournaments</title>
+</head>
+<body>
+
+<div th:replace="navbar:: header"></div>
+
+<div class="d-flex justify-content-center mt-3">
+
+    <button class="btn text-light  btn-lg" style="background-color: green;" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">Create New Tournament
+    </button>
+</div>
+<h3 class="d-flex justify-content-center mt-3">Tournaments</h3>
+<div class="container align-items-center">
+    <div class="row bg-dark text-bg-dark text-center p-3 rounded-top">
+        <div class="col ">Name</div>
+        <div class="col ">No. of Teams</div>
+        <div class="col ">Created At</div>
+        <div class="col ">Status</div>
+        <div class="col ">Winner</div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-light " style="background-color: green;">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">New Tournament</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <input name="name" class="form-control m-1" type="text" placeholder="Enter Tournament name"
+                               required/>
+                        <select name="type" class="form-select m-1" aria-label="Default select example">
+                            <option selected>Select Sports type</option>
+                            <option value="1">Football</option>
+                            <option value="2">Cricket</option>
+                            <option value="3">Basketball</option>
+                        </select>
+                        <div class="input-group date m-1" data-provide="datepicker">
+                            <input name="startDate" type="date" class="form-control" placeholder="Start Date" required>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Enter the venue" name="venue" class="m-1 form-control"
+                               required/>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
