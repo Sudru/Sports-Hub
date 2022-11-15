@@ -19,6 +19,8 @@ public class TournamentController {
     public String tournaments(Model model){
         model.addAttribute("sportsTypes",SportType.values());
         model.addAttribute(new TournamentRegisterDto());
+        model.addAttribute("tournamentList",tournamentService.getUsersTournaments());
+        log.info(tournamentService.getUsersTournaments().toString());
         return "tournaments";
     }
     @GetMapping("/tournament/{id}")

@@ -27,7 +27,7 @@ public class TournamentService {
     private final SportsHubUtil sportsHubUtil;
 
     public List<TournamentDto> getUsersTournaments(){
-        return tournamentRepository.findAll().stream().map(a->modelMapper.map(a,TournamentDto.class)).collect(Collectors.toList());
+        return tournamentRepository.findAllByUser(sportsHubUtil.getAuthenticatedUser()).stream().map(a->modelMapper.map(a,TournamentDto.class)).collect(Collectors.toList());
     }
     public void createTournament(TournamentRegisterDto dto){
         Tournament tournament = modelMapper.map(dto,Tournament.class);
