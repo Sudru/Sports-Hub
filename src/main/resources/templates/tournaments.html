@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,23 +39,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post">
-                        <input name="name" class="form-control m-1" type="text" placeholder="Enter Tournament name"
-                               required/>
-                        <select name="type" class="form-select m-1" aria-label="Default select example">
-                            <option selected>Select Sports type</option>
-                            <option value="1">Football</option>
-                            <option value="2">Cricket</option>
-                            <option value="3">Basketball</option>
+                    <form method="post" th:action="@{/tournaments}" th:object="${tournamentRegisterDto}">
+                        <input name="tournamentName" class="form-control m-1" type="text" placeholder="Enter Tournament name"
+                               required th:field="*{tournamentName}"/>
+                        <select name="sportType" class="form-select m-1" aria-label="Default select example" th:field="*{sportType}" >
+                            <option th:each="type: ${sportsTypes}" th:text="${type}" th:value="${type}"></option>
                         </select>
-                        <div class="input-group date m-1" data-provide="datepicker">
+                        <div class="input-group date m-1" data-provide="datepicker" name="startDate" th:field="${tournamentRegisterDto.startDate}">
                             <input name="startDate" type="date" class="form-control" placeholder="Start Date" required>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>
                             </div>
                         </div>
                         <input type="text" placeholder="Enter the venue" name="venue" class="m-1 form-control"
-                               required/>
+                               required th:field="${tournamentRegisterDto.venue}"/>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
