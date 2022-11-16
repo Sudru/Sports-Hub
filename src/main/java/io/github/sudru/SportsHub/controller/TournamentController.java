@@ -24,7 +24,9 @@ public class TournamentController {
         return "tournaments";
     }
     @GetMapping("/tournament/{id}")
-    public String details(@PathVariable String id){
+    public String details(@PathVariable String id, Model model){
+        model.addAttribute("tournamentDto",tournamentService.tournamentDetails(id));
+        model.addAttribute("sportsTypes",SportType.values());
         return "tournament-details";
     }
     @PostMapping("/tournaments")

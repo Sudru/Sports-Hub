@@ -5,12 +5,9 @@ import io.github.sudru.SportsHub.dto.TournamentRegisterDto;
 import io.github.sudru.SportsHub.model.Tournament;
 import io.github.sudru.SportsHub.repository.TournamentRepository;
 import io.github.sudru.SportsHub.utils.SportsHubUtil;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,5 +31,10 @@ public class TournamentService {
         tournament.setUser(sportsHubUtil.getAuthenticatedUser());
         tournamentRepository.save(tournament);
         log.info(tournament.toString());
+    }
+
+    public TournamentDto tournamentDetails(String id) {
+        Tournament tournament = tournamentRepository.findById(id).orElseThrow();
+        return modelMapper.map(tournament,TournamentDto.class);
     }
 }
