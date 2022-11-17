@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +47,10 @@ public class TournamentService {
             modelMapper.map(dto,t);
             tournamentRepository.save(t);
         }
+    }
+
+    public List<TournamentDto> getUpcomingTournaments() {
+        log.info(LocalDate.now().toString());
+        return tournamentRepository.findAllByStartDateAfter(LocalDate.now()).stream().map(a->modelMapper.map(a,TournamentDto.class)).collect(Collectors.toList());
     }
 }
