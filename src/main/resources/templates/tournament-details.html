@@ -131,7 +131,7 @@
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-            <form method="put" th:action="'update/'+${tournamentDto.id}" th:object="${tournamentDto}">
+            <form method="post" th:action="'/tournament/update/'+${tournamentDto.id}" th:object="${tournamentDto}">
                 <input name="tournamentName" class="form-control m-1" type="text"
                        placeholder="Enter Tournament name"
                        required th:field="*{tournamentName}"/>

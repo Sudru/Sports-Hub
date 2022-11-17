@@ -3,6 +3,7 @@ package io.github.sudru.SportsHub.service;
 import io.github.sudru.SportsHub.dto.TournamentDto;
 import io.github.sudru.SportsHub.dto.TournamentRegisterDto;
 import io.github.sudru.SportsHub.model.Tournament;
+import io.github.sudru.SportsHub.model.User;
 import io.github.sudru.SportsHub.repository.TournamentRepository;
 import io.github.sudru.SportsHub.utils.SportsHubUtil;
 import lombok.RequiredArgsConstructor;
@@ -36,5 +37,14 @@ public class TournamentService {
     public TournamentDto tournamentDetails(String id) {
         Tournament tournament = tournamentRepository.findById(id).orElseThrow();
         return modelMapper.map(tournament,TournamentDto.class);
+    }
+
+    public void updateTournament(String id,TournamentRegisterDto dto) {
+        User user = sportsHubUtil.getAuthenticatedUser();
+        Tournament t = tournamentRepository.findById(id).orElseThrow();
+        if(user.get_id().equals(t.getUser().get_id())){
+            modelMapper.map(dto,t);
+            tournamentRepository.save(t);
+        }
     }
 }

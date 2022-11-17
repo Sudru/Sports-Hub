@@ -36,4 +36,9 @@ public class TournamentController {
         return "redirect:/tournaments";
 
     }
+    @PostMapping("/tournament/update/{id}")
+    public String updateTournament(@ModelAttribute TournamentRegisterDto dto,@PathVariable String id){
+        tournamentService.updateTournament(id,dto);
+        return "redirect:/tournaments";
+    }
 }
