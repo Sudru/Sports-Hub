@@ -1,4 +1,5 @@
 package io.github.sudru.SportsHub.controller;
+import io.github.sudru.SportsHub.dto.TeamDto;
 import io.github.sudru.SportsHub.service.TournamentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ public class HomeController {
     @GetMapping
     public String home(Model model){
         model.addAttribute("tournamentList",tournamentService.getUpcomingTournaments());
+        model.addAttribute(new TeamDto());
         return "home";
     }
 }
