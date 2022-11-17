@@ -10,10 +10,10 @@ import java.time.LocalDate;
 @Data
 public class TournamentRegisterDto implements Serializable {
     @NotEmpty
-    public String tournamentName;
+    private String tournamentName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    public LocalDate startDate;
-    public SportType sportType;
+    private LocalDate startDate;
+    private SportType sportType;
     @NotEmpty
-    public String venue;
+     private String venue;
 }

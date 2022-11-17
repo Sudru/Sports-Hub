@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 @Data
 public class TournamentDto {
-    public String id;
-    public int noOfTeams;
-    public String tournamentName;
-    public LocalDate startDate;
-    public SportType sportType;
-    public String venue;
+    private String id;
+    private int noOfTeams;
+    private String tournamentName;
+    private LocalDate startDate;
+    private SportType sportType;
+    private String venue;
 }
