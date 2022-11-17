@@ -104,15 +104,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post"  id="registerTeam">
+                <form th:action="@{/team}" method="post"  id="registerTeam" th:object="${teamDto}">
                     <input name="tournamentName" class="form-control m-1" type="text"
-                           placeholder="Enter Team Name"
+                           placeholder="Enter Team Name" th:field="*{teamName}"
                            required/>
-                    <input type="text" class="form-control m-1" required placeholder="Coach/Manager"/>
+                    <input type="text" class="form-control m-1" required placeholder="Coach/Manager" th:field="*{manager}"/>
                     <input type="tel" class="form-control m-1" required placeholder="Contact Number" pattern="[0-9]{10}"/>
-                    <div class="input-group m-1" th:each="i:${#numbers.sequence(1,5)}">
-                        <input type="text" name="playerName" class="form-control"  placeholder="Player Name">
-                        <input type="number" name="kitNo" class="form-control" />
+                    <div class="input-group m-1" th:each=" i :${#numbers.sequence(0,5)}" th:field="*{playersList}">
+                        <input type="text" th:field="*{playersList[__${i}__].name}" name="name" class="form-control"  placeholder="Player Name">
+                        <input type="number" th:field="*{playersList[__${i}__].kitNo}" name="kitNo" class="form-control" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
