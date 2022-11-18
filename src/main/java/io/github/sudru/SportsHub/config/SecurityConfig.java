@@ -20,6 +20,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().
                 mvcMatchers("/register").permitAll()
+                .mvcMatchers("/team/*").permitAll()
                 .mvcMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").permitAll();
