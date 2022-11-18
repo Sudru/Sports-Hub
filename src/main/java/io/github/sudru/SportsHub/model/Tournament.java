@@ -7,17 +7,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Document(collection = "tournaments")
 @Data
 public class Tournament {
     @Id
-    public String id;
-    public String name;
-    public String venue;
-    public SportType sportType;
+    private String id;
+    private String name;
+    private String venue;
+    private SportType sportType;
     @DocumentReference(lazy = true)
-    public User user;
-    public LocalDate startDate;
-    public String winner;
+    private User user;
+    private LocalDate startDate;
+    private String winner;
+    @DocumentReference(lazy = true)
+    private List<Team> teams;
+
+
 }
