@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,159 +11,157 @@
     <title>Tournament</title>
 </head>
 <body class="bg-light">
-    <div class="container mt-3">
-        <div class="main-body">
-        
-            <div class="row align-items-start">
-                <div class="col-md-5 mb-3">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex flex-column align-items-center text-center">
-                        <i class="bi bi-trophy-fill text-warning" style="font-size: 3.5rem;"></i>
-                        <div class="mt-3">
-                          <h4 th:text="${tournamentDto.tournamentName}"></h4>
-                          <p class="text-secondary mb-3"><i class="bi bi-pin-map-fill text-success" th:text="${tournamentDto.venue}" ></i></p>
-                          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
-                          <button class="btn btn-outline-danger">Delete</button>
-                        </div>
-                        <div class="container-fluid mt-3">
-                            <div class="row m-2">
-                                <div class="col-lg-3"><b>ID</b></div>
-                                <div class="col text-secondary lead" th:text="${tournamentDto.id}"></div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-lg-3"><b>Type</b></div>
-                                <div class="col text-secondary lead" th:text="${tournamentDto.sportType}"></div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-lg-3"><b>Date</b></div>
-                                <div class="col text-secondary lead" th:text="${tournamentDto.startDate}"></div>
-                            </div>
+<div th:replace="navbar:: header"></div>
 
-                            <div class="row m-md-2">
-                                <div class="col-lg-3"><b>Winner</b></div>
-                                <div class="col text-secondary lead">-</div>
+<div class="container mt-3">
+    <div class="main-body">
+
+        <div class="row align-items-start">
+            <div class="col-md-5 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <i class="bi bi-trophy-fill text-warning" style="font-size: 3.5rem;"></i>
+                            <div class="mt-3">
+                                <h4 th:text="${tournamentDto.tournamentName}"></h4>
+                                <p class="text-secondary mb-3"><i class="bi bi-pin-map-fill text-success"
+                                                                  th:text="${tournamentDto.venue}"></i></p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Edit
+                                </button>
+                                <button class="btn btn-outline-danger">Delete</button>
                             </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                 
-                </div>
-                <div class="col-md-7">
-                    <div class="row">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <h4 class="col text-center">Matches</h4>
-                                    </div>
-                                    <div class="row align-items-center my-3">
-                                        <div class="col-3"><i class="bi bi-shield-shaded" style="font-size: 3rem;"></i></div>
-                                        <div class="col-2 text-start"><strong>Team 1</strong></div>
-                                        <div class="col-2 text-center"><strong>14:45</strong></div>
-                                        <div class="col-2 text-end"><strong>Team 2</strong></div>
-                                        <div class="col-3 text-end"><i class="bi bi-shield-shaded" style="font-size: 3rem;"></i></div>
-        
-                                    </div>
+                            <div class="container-fluid mt-3">
+                                <div class="row m-2">
+                                    <div class="col-lg-3"><b>ID</b></div>
+                                    <div class="col text-secondary lead" th:text="${tournamentDto.id}"></div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-lg-3"><b>Type</b></div>
+                                    <div class="col text-secondary lead" th:text="${tournamentDto.sportType}"></div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-lg-3"><b>Date</b></div>
+                                    <div class="col text-secondary lead" th:text="${tournamentDto.startDate}"></div>
+                                </div>
+
+                                <div class="row m-md-2">
+                                    <div class="col-lg-3"><b>Winner</b></div>
+                                    <div class="col text-secondary lead">-</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-1">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="container">
-                                    <div class="row">
-                                        <h4 class="col text-center">
-                                            Teams
-                                        </h4>
-                                    </div>
-                                    <div class="row">
-                                        <table class=" table table-striped">
-                                            <tr class="m-1 text-center">
-                                                <th class="text-start">S.no</th>
-                                                <th class="text-start">Name</th>
-                                                <th class="text-start">Registered By</th>
-                                                <th class="text-start">Contact</th>
-                                                <th></th>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>BCT076</td>
-                                                <td>Sudarshan Devkota</td>
-                                                <td>12345679+0</td>
-                                                <td><div class="btn btn-outline-success">View</div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>BCT076</td>
-                                                <td>Sudarshan Devktoa</td>
-                                                <td>1234567890</td>
-                                                <td><div class="btn btn-outline-success">View</div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>BCT076</td>
-                                                <td>Sudarshan Devktoa</td>
-                                                <td>1234567890</td>
-                                                <td ><div class="btn btn-outline-success">View</div></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
+
             </div>
-    
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <h4 class="col text-center">Matches</h4>
+                                </div>
+                                <div class="row align-items-center my-3">
+                                    <div class="col-3"><i class="bi bi-shield-shaded" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <div class="col-2 text-start"><strong>Team 1</strong></div>
+                                    <div class="col-2 text-center"><strong>14:45</strong></div>
+                                    <div class="col-2 text-end"><strong>Team 2</strong></div>
+                                    <div class="col-3 text-end"><i class="bi bi-shield-shaded"
+                                                                   style="font-size: 3rem;"></i></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <h4 class="col text-center">
+                                        Teams
+                                    </h4>
+                                </div>
+                                <div class="row">
+                                    <table class=" table table-striped">
+                                        <tr class="m-1 text-center">
+                                            <th class="text-start">Name</th>
+                                            <th class="text-start">Registered By</th>
+                                            <th class="text-start">Contact</th>
+                                            <th></th>
+                                        </tr>
+                                        <tr th:each="team:${teamsList}">
+                                            <td th:text="${team.teamName}"></td>
+                                            <td th:text="${team.manager}"></td>
+                                            <td th:text="${team.contactNo}"></td>
+                                            <td>
+                                                <div class="btn btn-outline-success">View</div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-light " style="background-color: green;">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Tournament</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" th:action="'/tournament/update/'+${tournamentDto.id}" th:object="${tournamentDto}">
+                    <input name="tournamentName" class="form-control m-1" type="text"
+                           placeholder="Enter Tournament name"
+                           required th:field="*{tournamentName}"/>
+                    <select name="sportType" class="form-select m-1" aria-label="Default select example"
+                            th:field="*{sportType}" th:default="${tournamentDto.sportType}">
+                        <option th:each="type: ${sportsTypes}" th:text="${type}" th:value="${type}"></option>
+                    </select>
+                    <div class="input-group date m-1" data-provide="datepicker" name="startDate"
+                         th:field="*{startDate}">
+                        <input name="startDate" type="date" class="form-control" placeholder="Start Date"
+                               th:value="${tournamentDto.startDate}" required>
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Enter the venue" name="venue" class="m-1 form-control"
+                           required th:field="*{venue}"/>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+
+            </div>
+
         </div>
     </div>
+</div>
 
 
-     <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog">
-	  <div class="modal-content">
-		<div class="modal-header text-light " style="background-color: green;">
-		  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Tournament</h1>
-		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		</div>
-		<div class="modal-body">
-            <form method="post" th:action="'/tournament/update/'+${tournamentDto.id}" th:object="${tournamentDto}">
-                <input name="tournamentName" class="form-control m-1" type="text"
-                       placeholder="Enter Tournament name"
-                       required th:field="*{tournamentName}"/>
-                <select name="sportType" class="form-select m-1" aria-label="Default select example"
-                        th:field="*{sportType}" th:default="${tournamentDto.sportType}">
-                    <option th:each="type: ${sportsTypes}" th:text="${type}" th:value="${type}" ></option>
-                </select>
-                <div class="input-group date m-1" data-provide="datepicker" name="startDate"
-                     th:field="*{startDate}">
-                    <input name="startDate" type="date" class="form-control" placeholder="Start Date" th:value="${tournamentDto.startDate}" required>
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                </div>
-                <input type="text" placeholder="Enter the venue" name="venue" class="m-1 form-control"
-                       required th:field="*{venue}"/>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </div>
-            </form>
-
-        </div>
-		
-	  </div>
-	</div>
-  </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
