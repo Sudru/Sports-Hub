@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collation = "teams")
 @Data
+@Document(collation = "team")
 public class Team {
     @Id
     private String id;
