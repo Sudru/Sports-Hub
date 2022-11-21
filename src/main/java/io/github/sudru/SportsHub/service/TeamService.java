@@ -10,18 +10,31 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class TeamService {
     private final TournamentRepository tournamentRepository;
-    private final TeamRepository teamRepository;
+    private  final TeamRepository teamRepository;
+
     private final ModelMapper modelMapper;
     public void registerTeam(String id, TeamDto dto){
         Tournament t = tournamentRepository.findById(id).orElseThrow();
-        Team team = teamRepository.save(modelMapper.map(dto,Team.class));
-        t.getTeams().add(team);
-        log.info(tournamentRepository.save(t).toString());
+        Team  team = modelMapper.map(dto,Team.class);
+        log.info(String.valueOf(t.getTeams().size()));
+        t.getTeams().add(teamRepository.save(team));
+        log.info(String.valueOf(t.getTeams().size()));
 
+        tournamentRepository.save(t);
+
+    }
+    public List<TeamDto> getRegisteredTeams(String id){
+        Tournament t = tournamentRepository.findById(id).orElseThrow();
+        log.info(Arrays.deepToString(t.getTeams().toArray()));
+        return t.getTeams().stream().map(a->modelMapper.map(a,TeamDto.class)).collect(Collectors.toList());
     }
 }
