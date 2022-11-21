@@ -2,6 +2,7 @@ package io.github.sudru.SportsHub.controller;
 
 import io.github.sudru.SportsHub.dto.SportType;
 import io.github.sudru.SportsHub.dto.TournamentRegisterDto;
+import io.github.sudru.SportsHub.service.TeamService;
 import io.github.sudru.SportsHub.service.TournamentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class TournamentController {
     private final TournamentService tournamentService;
+    private final TeamService teamService;
 
     @GetMapping("/tournaments")
     public String tournaments(Model model){
@@ -27,11 +29,11 @@ public class TournamentController {
     public String details(@PathVariable String id, Model model){
         model.addAttribute("tournamentDto",tournamentService.tournamentDetails(id));
         model.addAttribute("sportsTypes",SportType.values());
+        model.addAttribute("teamsList",teamService.getRegisteredTeams(id));
         return "tournament-details";
     }
     @PostMapping("/tournaments")
     public String createTournament(@ModelAttribute TournamentRegisterDto dto){
-        log.info(dto.toString());
         tournamentService.createTournament(dto);
         return "redirect:/tournaments";
 
