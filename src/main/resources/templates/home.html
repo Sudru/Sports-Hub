@@ -109,7 +109,7 @@
                            placeholder="Enter Team Name" th:field="*{teamName}"
                            required/>
                     <input type="text" class="form-control m-1" required placeholder="Coach/Manager" th:field="*{manager}"/>
-                    <input type="tel" class="form-control m-1" required placeholder="Contact Number" pattern="[0-9]{10}"/>
+                    <input type="tel" class="form-control m-1" required placeholder="Contact Number" pattern="[0-9]{10}" th:field="*{contactNo}"/>
                     <div class="input-group m-1" th:each=" i :${#numbers.sequence(0,5)}" th:field="*{playersList}">
                         <input type="text" th:field="*{playersList[__${i}__].name}" name="name" class="form-control"  placeholder="Player Name">
                         <input type="number" th:field="*{playersList[__${i}__].kitNo}" name="kitNo" class="form-control" />
