@@ -17,6 +17,7 @@ public class Tournament {
     private String name;
     private String venue;
     private SportType sportType;
+    private int playersPerTeam;
     @DocumentReference(lazy = true)
     private User user;
     private LocalDate startDate;

@@ -12,4 +12,5 @@ public class TournamentDto {
     private LocalDate startDate;
     private SportType sportType;
     private String venue;
+    private int playersPerTeam;
 }
