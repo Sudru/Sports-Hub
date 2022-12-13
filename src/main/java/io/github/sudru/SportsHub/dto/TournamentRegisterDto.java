@@ -14,6 +14,7 @@ public class TournamentRegisterDto implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     private SportType sportType;
+    private int playersPerTeam;
     @NotEmpty
      private String venue;
 }
