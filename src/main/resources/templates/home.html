@@ -88,7 +88,7 @@
         <div class="col-2 " th:text="${tournament.startDate}"></div>
         <div class="col" th:text="${tournament.venue}"></div>
         <div class="col-2 " th:text="${tournament.sportType}"></div>
-        <div class="col-2 text-end"><a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" th:id="${tournament.id}" onclick="updateTournamentId(this)">Register</a></div>
+        <div class="col-2 text-end"><a class="btn btn-outline-primary" th:href="'register/'+${tournament.id}+'?playersPerTeam='+ ${tournament.playersPerTeam}">Register</a></div>
 
     </div>
 </div>
