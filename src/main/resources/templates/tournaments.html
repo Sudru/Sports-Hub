@@ -66,7 +66,7 @@
                     </div>
                     <input type="text" placeholder="Enter the venue" name="venue" class="m-1 form-control"
                            required th:field="${tournamentRegisterDto.venue}"/>
-
+                    <input class="m-1 form-control" type="number" placeholder="Players Per Team" name="playersPerTeam" th:field="${tournamentRegisterDto.playersPerTeam}">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Create</button>
